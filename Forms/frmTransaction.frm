@@ -266,38 +266,38 @@ End Sub
 Private Function Validations() As Boolean
 On Error GoTo ErroHandler
 
-   Dim msg As String
+   Dim strMsg As String
       
-   msg = ""
+   Msg = ""
 
    If Trim(mskCard.Text) = "" Then
-       msg = msg & "- Número do Cartão, Obrigatório." & vbCrLf
+       strMsg = strMsg & "- Número do Cartão, Obrigatório." & vbCrLf
    ElseIf Not IsValidCardNumber(Replace(mskCard.Text, " ", "")) Then
-       msg = msg & "- Numero do Cartão Inválido." & vbCrLf
+       strMsg = strMsg & "- Numero do Cartão Inválido." & vbCrLf
    End If
    
    If Trim(txtAmount.Text) = "" Then
-       msg = msg & "- Valor É Obrigatório." & vbCrLf
+       strMsg = strMsg & "- Valor É Obrigatório." & vbCrLf
    ElseIf Not IsValidAmount(txtAmount.Text) Then
-       msg = msg & "- Valor Inválido." & vbCrLf
+       strMsg = strMsg & "- Valor Inválido." & vbCrLf
    End If
    
    If Trim(mskDate.Text) = "" Then
-       msg = msg & "- Data É Obrigatória." & vbCrLf
+       strMsg = strMsg & "- Data É Obrigatória." & vbCrLf
    ElseIf Not IsDate(mskDate.Text) Then
-       msg = msg & "- Data Inválida." & vbCrLf
+       strMsg = strMsg & "- Data Inválida." & vbCrLf
    End If
    
    If Not IsValidStatus(cboStatus.ListIndex) Then
-     msg = msg & "- Status " & cboStatus.Text & " Inválido." & vbCrLf
+     strMsg = strMsg & "- Status " & cboStatus.Text & " Inválido." & vbCrLf
    End If
    
    If Not IsValidDescription(txtDescription.Text) Then
-       msg = msg & "- Descrição Inválida." & vbCrLf
+       strMsg = strMsg & "- Descrição Inválida." & vbCrLf
    End If
    
-   If msg <> "" Then
-     MsgBox "Por favor, corrija os seguintes erros:" & vbCrLf & vbCrLf & msg, _
+   If strMsg <> "" Then
+     MsgBox "Por favor, corrija os seguintes erros:" & vbCrLf & vbCrLf & strMsg, _
         vbExclamation + vbOKOnly, "Validation"
      Validations = False
    Else
@@ -349,7 +349,7 @@ On Error GoTo ErroHandler
               "TransactionDate = '" & Format(dateTransaction, "YYYY-MM-DD HH:NN:SS") & "', " & _
               "Description = '" & Replace(txtDescription.Text, "'", "''") & "', " & _
               "TransactionStatus = '" & status & "' " & _
-              "WHERE TransactionId = " & m_idTransacao
+              "WHERE TransactionStatus <> 'Approved' AND TransactionId = " & m_idTransacao
    End If
    
    

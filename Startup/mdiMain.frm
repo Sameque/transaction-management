@@ -2,10 +2,10 @@ VERSION 5.00
 Begin VB.MDIForm mdiMain 
    BackColor       =   &H8000000C&
    Caption         =   "Gerenciamento de Transações"
-   ClientHeight    =   12090
+   ClientHeight    =   10755
    ClientLeft      =   165
-   ClientTop       =   810
-   ClientWidth     =   21315
+   ClientTop       =   -525
+   ClientWidth     =   20370
    LinkTopic       =   "MDIForm1"
    StartUpPosition =   3  'Windows Default
    Begin VB.Menu mnuTransactions 
@@ -28,7 +28,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub MDIForm_Load()
 
-   Call InitialConnection
+   Call InitializeConnection
    Call InicializarLog
    
    If Not TestConnection Then
