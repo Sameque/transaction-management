@@ -56,7 +56,7 @@ docker-compose up -d
 
 **O que acontece automaticamente:**
 1. SQL Server 2022 Developer inicia na porta **1433**
-2. Banco `FinancialTransactionDB` é criado
+2. Banco `TransactionManagemer` é criado
 3. Todos os objetos de schema são criados (tabela, índices, SP, funções, view)
 4. **200 transações de exemplo** são carregadas do `database/06_dados_exemplo_load_test.sql`:
    - 10 cartões de teste (Visa, Mastercard, Amex, Discover, JCB, UnionPay)
@@ -67,7 +67,7 @@ docker-compose up -d
 **Detalhes de conexão:**
 ```
 Server: localhost,1433
-Database: FinancialTransactionDB
+Database: TransactionManagemer
 Username: sa
 Password: YourStrong@Password123
 ```
@@ -115,7 +115,7 @@ sqlcmd -S (local) -i database\script_completo.sql
 **C. Linux/macOS com sqlcmd:**
 ```bash
 chmod +x database/init-database.sh
-./database/init-database.sh localhost FinancialTransactionDB sa YourStrong@Password123
+./database/init-database.sh localhost TransactionManagemer sa YourStrong@Password123
 ```
 
 **2. Configurar Conexão**
@@ -124,7 +124,7 @@ Edite `FinancialTtransactionManager.frm` no `Form_Load`:
 ```vb
 Call InicializarConexao( _
     Servidor:="(local)", _         ' Seu SQL Server
-    Banco:="FinancialTransactionDB", _
+    Banco:="TransactionManagemer", _
     AutenticacaoWindows:=True)      ' False se usar SQL Auth
 ```
 
@@ -132,7 +132,7 @@ Para Docker:
 ```vb
 Call InicializarConexao( _
     Servidor:="localhost,1433", _  ' Mapeamento de porta do Docker
-    Banco:="FinancialTransactionDB", _
+    Banco:="TransactionManagemer", _
     Usuario:="sa", _
     Senha:="YourStrong@Password123", _
     AutenticacaoWindows:=False)

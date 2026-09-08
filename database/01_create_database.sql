@@ -1,22 +1,6 @@
--- =====================================================================
--- Script 01: Database and Transactions Table Creation
--- =====================================================================
--- Execute this script first to create the base structure
--- =====================================================================
+CREATE DATABASE TransactionManagemer;
 
--- Create database (if not exists)
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'FinancialTransactionDB')
-BEGIN
-    CREATE DATABASE FinancialTransactionDB;
-    PRINT 'Database FinancialTransactionDB created successfully.';
-END
-ELSE
-BEGIN
-    PRINT 'Database FinancialTransactionDB already exists.';
-END
-GO
-
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 -- =====================================================================

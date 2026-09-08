@@ -8,7 +8,7 @@
 -- - Data from last 6 months (Apr 2026 - Sep 2026)
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 SET NOCOUNT ON;
@@ -153,7 +153,7 @@ GO
 -- =====================================================================
 -- Data Verification
 -- =====================================================================
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 SELECT

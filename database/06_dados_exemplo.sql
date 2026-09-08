@@ -8,7 +8,7 @@
 -- - Data from last 3 months
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 SET NOCOUNT ON;
@@ -140,7 +140,7 @@ PRINT 'Total transactions: ' + CAST(@@ROWCOUNT AS VARCHAR(10));
 -- Quick Data Verification
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 SELECT

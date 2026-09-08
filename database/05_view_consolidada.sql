@@ -4,7 +4,7 @@
 -- View that facilitates queries by adding category and date fields
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 IF OBJECT_ID('dbo.vw_ConsolidatedTransactions', 'V') IS NOT NULL

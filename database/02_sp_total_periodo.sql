@@ -4,7 +4,7 @@
 -- Calculates totals grouped by card and status within a period
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 IF OBJECT_ID('dbo.sp_GetTransactionTotalsByPeriod', 'P') IS NOT NULL

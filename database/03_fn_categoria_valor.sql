@@ -9,7 +9,7 @@
 -- < 500                Low
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 IF OBJECT_ID('dbo.fn_GetValueCategory', 'FN') IS NOT NULL

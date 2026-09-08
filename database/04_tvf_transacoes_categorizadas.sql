@@ -5,7 +5,7 @@
 -- Uses the fn_GetValueCategory function
 -- =====================================================================
 
-USE FinancialTransactionDB;
+USE TransactionManagemer;
 GO
 
 IF OBJECT_ID('dbo.tvf_GetCategorizedTransactionsByPeriod', 'TF') IS NOT NULL
