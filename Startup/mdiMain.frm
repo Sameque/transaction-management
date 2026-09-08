@@ -1,0 +1,47 @@
+VERSION 5.00
+Begin VB.MDIForm mdiMain 
+   BackColor       =   &H8000000C&
+   Caption         =   "Gerenciamento de Transações"
+   ClientHeight    =   12090
+   ClientLeft      =   165
+   ClientTop       =   810
+   ClientWidth     =   21315
+   LinkTopic       =   "MDIForm1"
+   StartUpPosition =   3  'Windows Default
+   Begin VB.Menu mnuTransactions 
+      Caption         =   "&Transações"
+   End
+   Begin VB.Menu mnuReports 
+      Caption         =   "&Relatórios"
+      Begin VB.Menu mnPreviousMonth 
+         Caption         =   "&Mês Anterior"
+      End
+   End
+   Begin VB.Menu mnuExit 
+      Caption         =   "&Sair"
+   End
+End
+Attribute VB_Name = "mdiMain"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Sub MDIForm_Load()
+
+   Call InitialConnection
+   Call InicializarLog
+   
+   If Not TestConnection Then
+      Call DisplayFriendlyMessage("Form_Load", "Could not connect to database. Check connection string.")
+      End
+   End If
+End Sub
+
+Private Sub mnuExit_Click()
+   End
+End Sub
+
+Private Sub mnuTransactions_Click()
+   Dim frm As New frmTransactions
+   frm.Show
+End Sub
