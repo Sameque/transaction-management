@@ -94,22 +94,16 @@ docker logs sqlserver_db -f
 - Microsoft Excel (para exportação)
 - OCXs registrados: `MSFLXGRD.OCX`, `MSADO28.tlb`
 
-**1. Banco de Dados (escolha uma):**
+**1. Banco de Dados:**
 
-**A. Script consolidado (recomendado):**
+**Scripts individuais (ordem obrigatória):**
 ```sql
--- Execute no SSMS ou sqlcmd:
-sqlcmd -S (local) -i database\script_completo.sql
-```
-
-**B. Scripts individuais (ordem obrigatória):**
-```sql
-1. database\01_create_database.sql
-2. database\02_sp_total_periodo.sql
-3. database\03_fn_categoria_valor.sql
-4. database\04_tvf_transacoes_categorizadas.sql
-5. database\05_view_consolidada.sql
-6. database\06_dados_exemplo_load_test.sql   -- 200 registros para teste de carga
+1. scripts-database\01_create_database.sql
+2. scripts-database\02_sp_total_periodo.sql
+3. scripts-database\03_fn_categoria_valor.sql
+4. scripts-database\04_tvf_transacoes_categorizadas.sql
+5. scripts-database\05_view_consolidada.sql
+6. scripts-database\06_dados_exemplo_load_test.sql   -- 200 registros para teste de carga
 ```
 
 **C. Linux/macOS com sqlcmd:**
@@ -139,7 +133,7 @@ Call InicializarConexao( _
 ```
 
 **3. Abrir no VB6**
-1. Abra `FinancialTransactionManager.vbp` no VB6 IDE
+1. Abra `TransactionManager.vbp` no VB6 IDE
 2. Verifique referências (Projeto > Referências):
    - ✅ Microsoft ActiveX Data Objects 2.8 Library
    - ✅ Microsoft FlexGrid Control 6.0
@@ -147,7 +141,7 @@ Call InicializarConexao( _
 
 **4. Compilar (Opcional)**
 ```
-Arquivo > Make FinancialTransactionManager.exe
+Arquivo > Make TransactionManager.exe
 ```
 O executável será gerado na pasta do projeto.
 
@@ -156,11 +150,11 @@ O executável será gerado na pasta do projeto.
 ## 📁 Estrutura do Projeto
 
 ```
-FinancialTransactionManager/
-├── FinancialTransactionManager.vbp       # Projeto VB6
+TransactionManager/
+├── TransactionManager.vbp       # Projeto VB6
 ├── FinancialTtransactionManager.frm      # Formulário principal (lista/grid)
 ├── frmTransacao.frm                      # Formulário cadastro/edição (modal)
-├── FinancialTransactionManager.vbw       # Workspace
+├── TransactionManager.vbw       # Workspace
 ├── docker-compose.yml                    # Orquestração Docker
 ├── src/
 │   ├── modConexao.bas                    # Conexão ADO + helpers
@@ -211,7 +205,7 @@ services:
       - "1433:1433"
     volumes:
       - mssql_data:/var/opt/mssql
-      - ./database:/docker-entrypoint-initdb.d
+      - ./scripts-database:/docker-entrypoint-initdb.d
     command:
       - /bin/bash
       - -c
@@ -301,15 +295,6 @@ volumes:
 | Timeout na query | Verifique índices, reduza `m_recordsPerPage` |
 | Acentos quebrados | Salve .frm/.bas como ANSI (padrão VB6) |
 | Docker: porta 1433 em uso | Pare SQL Server local ou altere `ports:` no compose |
-
----
-
-## 📚 Documentação
-
-- [`docs/DOCUMENTACAO_TECNICA.md`](docs/DOCUMENTACAO_TECNICA.md) - Documentação técnica completa
-- [`docs/EVOLUCAO_FUTURA.md`](docs/EVOLUCAO_FUTURA.md) - Roadmap, migração .NET, features futuras
-- [`docs/PLANO_EXECUCAO.md`](docs/PLANO_EXECUCAO.md) - Plano de desenvolvimento por fases
-- [`docs/proposta.md`](docs/proposta.md) - Requisitos originais
 
 ---
 
