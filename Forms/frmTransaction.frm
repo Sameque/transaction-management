@@ -268,7 +268,7 @@ On Error GoTo ErroHandler
 
    Dim strMsg As String
       
-   Msg = ""
+   strMsg = ""
 
    If Trim(mskCard.Text) = "" Then
        strMsg = strMsg & "- Número do Cartão, Obrigatório." & vbCrLf
