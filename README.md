@@ -58,7 +58,7 @@ docker-compose up -d
 1. SQL Server 2022 Developer inicia na porta **1433**
 2. Banco `TransactionManagemer` é criado
 3. Todos os objetos de schema são criados (tabela, índices, SP, funções, view)
-4. **200 transações de exemplo** são carregadas do `database/06_dados_exemplo_load_test.sql`:
+4. **200 transações de exemplo** são carregadas do `scripts-database/06_dados_exemplo_load_test.sql`:
    - 10 cartões de teste (Visa, Mastercard, Amex, Discover, JCB, UnionPay)
    - 6 meses de dados (Abr–Set 2026)
    - Distribuição: ~130 Low, ~14 Medium, ~29 High, ~27 Premium
@@ -114,8 +114,8 @@ sqlcmd -S (local) -i database\script_completo.sql
 
 **C. Linux/macOS com sqlcmd:**
 ```bash
-chmod +x database/init-database.sh
-./database/init-database.sh localhost TransactionManagemer sa YourStrong@Password123
+chmod +x scripts-scripts-database/init-database.sh
+./scripts-database/init-database.sh localhost TransactionManagemer sa YourStrong@Password123
 ```
 
 **2. Configurar Conexão**
@@ -167,7 +167,7 @@ FinancialTransactionManager/
 │   ├── modLogErros.bas                   # Log em arquivo texto
 │   ├── modUtilitarios.bas                # Validações, formatação
 │   └── modExportacaoExcel.bas            # Exportação Excel via COM
-├── database/
+├── scripts-database/
 │   ├── 01_create_database.sql            # DB + Tabela Transactions + índices
 │   ├── 02_sp_total_periodo.sql           # Stored Procedure
 │   ├── 03_fn_categoria_valor.sql         # Função escalar (categoria)
