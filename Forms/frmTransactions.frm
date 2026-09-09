@@ -470,7 +470,7 @@ On Error GoTo ErrorHandler
    cmdExportExcel.enabled = True
    
    If Not blnExported Then
-      Call DisplayFriendlyMessage(strMsg)
+      Call DisplayFriendlyMessage(strMsg, "Verifique se o Excel está instalado.")
       Exit Sub
    End If
 

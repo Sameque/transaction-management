@@ -11,7 +11,7 @@ Public Function DisplayFriendlyMessage(MsgErro As String, Optional ByVal Detail 
                   "• Tente novamente em alguns instantes." & vbCrLf & _
                   "• Se persistir, contate o suporte."
 
-   If Detail <> "" Then strMessage = strMessage & vbCrLf & vbCrLf & "Detalhe do erro: " & Detail
+   If Detail <> "" Then strMessage = strMessage & vbCrLf & vbCrLf & "Detalhe: " & Detail
 
    MsgBox strMessage, vbExclamation + vbOKOnly, "Ops, algo deu errado"
 
