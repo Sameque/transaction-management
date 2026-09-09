@@ -31,7 +31,7 @@ Public Sub InitializeConnection(Optional ByVal pIniPath As String = "")
     End If
     
     server = ReadIniValue(iniFile, "Database", "Server", "localhost")
-    database = ReadIniValue(iniFile, "Database", "Database", "TransactionManagemer")
+    database = ReadIniValue(iniFile, "Database", "Database", "TransactionManagement")
     user = ReadIniValue(iniFile, "Database", "User", "sa")
     password = ReadIniValue(iniFile, "Database", "Password", "")
     winAuth = (ReadIniValue(iniFile, "Database", "WindowsAuthentication", "0") = "1")
@@ -77,7 +77,7 @@ Private Sub CreateDefaultIni(ByVal pFile As String)
     Open pFile For Output As #f
     Print #f, "[Database]"
     Print #f, "Server=localhost"
-    Print #f, "Database=TransactionManagemer"
+    Print #f, "Database=TransactionManagement"
     Print #f, "User=sa"
     Print #f, "Password=YourStrong@Password123"
     Print #f, "WindowsAuthentication=0"

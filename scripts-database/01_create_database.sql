@@ -1,17 +1,17 @@
 
 -- Create database (if not exists)
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'TransactionManagemer')
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'TransactionManagement')
 BEGIN
-    CREATE DATABASE TransactionManagemer;
-    PRINT 'Database TransactionManagemer created successfully.';
+    CREATE DATABASE TransactionManagement;
+    PRINT 'Database TransactionManagement created successfully.';
 END
 ELSE
 BEGIN
-    PRINT 'Database TransactionManagemer already exists.';
+    PRINT 'Database TransactionManagement already exists.';
 END
 GO
 
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 IF OBJECT_ID('dbo.Transactions', 'U') IS NOT NULL

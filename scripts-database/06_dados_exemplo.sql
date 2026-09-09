@@ -1,4 +1,4 @@
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 SET NOCOUNT ON;
@@ -108,7 +108,7 @@ GO
 PRINT 'Sample data inserted successfully!';
 PRINT 'Total transactions: ' + CAST(@@ROWCOUNT AS VARCHAR(10));
 
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 SELECT

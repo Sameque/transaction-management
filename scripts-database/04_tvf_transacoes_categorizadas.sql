@@ -1,4 +1,4 @@
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 IF OBJECT_ID('dbo.tvf_GetCategorizedTransactionsByPeriod', 'TF') IS NOT NULL

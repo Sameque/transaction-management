@@ -1,4 +1,4 @@
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 SET NOCOUNT ON;
@@ -130,7 +130,7 @@ END
 PRINT '200 transactions inserted successfully!';
 GO
 
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 SELECT

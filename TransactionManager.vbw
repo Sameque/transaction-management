@@ -1,8 +1,8 @@
 Translations = 182, 182, 1395, 832, 
 Validations = 290, 44, 1503, 694, 
-frmTransactions = 182, 182, 1592, 612, Z, 234, 234, 1447, 884, C
+frmTransactions = 182, 182, 1592, 612, , 234, 234, 1447, 884, C
 mdiMain = 0, 0, 1213, 650, , 312, 312, 1525, 962, C
-frmTransaction = 130, 130, 572, 552, , 130, 130, 1035, 772, C
+frmTransaction = 130, 130, 572, 552, Z, 130, 130, 1035, 772, C
 Connection = 78, 78, 1488, 508, 
 HandleError = 104, 104, 1317, 754, 
 Helpers = 234, 234, 1447, 884, 

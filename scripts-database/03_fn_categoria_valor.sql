@@ -1,4 +1,4 @@
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 IF OBJECT_ID('dbo.fn_GetValueCategory', 'FN') IS NOT NULL

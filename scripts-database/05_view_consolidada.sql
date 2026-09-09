@@ -1,4 +1,4 @@
-USE TransactionManagemer;
+USE TransactionManagement;
 GO
 
 IF OBJECT_ID('dbo.vw_ConsolidatedTransactions', 'V') IS NOT NULL
