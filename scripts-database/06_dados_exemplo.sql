@@ -1,13 +1,3 @@
--- =====================================================================
--- Script 06: Sample Data for Testing
--- =====================================================================
--- Inserts ~50 varied transactions covering:
--- - Different cards (5 cards)
--- - All statuses (Approved, Pending, Canceled)
--- - All categories (Low, Medium, High, Premium)
--- - Data from last 3 months
--- =====================================================================
-
 USE TransactionManagemer;
 GO
 
@@ -19,18 +9,6 @@ DBCC CHECKIDENT('dbo.Transactions', RESEED, 0);
 PRINT 'Previous data removed. Inserting new sample data...';
 GO
 
--- =====================================================================
--- Test Cards (5 different cards)
--- =====================================================================
--- 4111111111111111 - Visa test card
--- 5555555555554444 - Mastercard test card
--- 378282246310005  - Amex test card (15 digits, padded with 0)
--- 6011111111111117 - Discover test card
--- 4000056655665556 - Another Visa card
-
--- =====================================================================
--- Current Month Data (September 2026)
--- =====================================================================
 INSERT INTO dbo.Transactions (CardNumber, TransactionAmount, TransactionDate, Description, TransactionStatus) VALUES
 -- Card 1 - September 2026
 ('4111111111111111', 150.00,  '2026-09-01 08:30:00', 'Supermarket', 'Approved'),
@@ -60,9 +38,6 @@ INSERT INTO dbo.Transactions (CardNumber, TransactionAmount, TransactionDate, De
 ('4000056655665556', 350.00,  '2026-09-04 16:00:00', 'Gym', 'Approved'),
 ('4000056655665556', 2700.00, '2026-09-08 10:30:00', 'Home Renovation', 'Pending');
 
--- =====================================================================
--- August 2026 Data (Previous Month - for "Last Month" Export Test)
--- =====================================================================
 INSERT INTO dbo.Transactions (CardNumber, TransactionAmount, TransactionDate, Description, TransactionStatus) VALUES
 -- Card 1 - August 2026
 ('4111111111111111', 250.00,  '2026-08-02 09:00:00', 'Supermarket', 'Approved'),
@@ -97,9 +72,6 @@ INSERT INTO dbo.Transactions (CardNumber, TransactionAmount, TransactionDate, De
 ('4000056655665556', 150.00,  '2026-08-13 15:00:00', 'Supermarket', 'Canceled'),
 ('4000056655665556', 550.00,  '2026-08-21 10:30:00', 'Restaurant', 'Approved');
 
--- =====================================================================
--- July 2026 Data (Two Months Ago - for Completeness)
--- =====================================================================
 INSERT INTO dbo.Transactions (CardNumber, TransactionAmount, TransactionDate, Description, TransactionStatus) VALUES
 -- Card 1 - July 2026
 ('4111111111111111', 180.00,  '2026-07-03 09:00:00', 'Bakery', 'Approved'),
@@ -135,10 +107,6 @@ GO
 
 PRINT 'Sample data inserted successfully!';
 PRINT 'Total transactions: ' + CAST(@@ROWCOUNT AS VARCHAR(10));
-
--- =====================================================================
--- Quick Data Verification
--- =====================================================================
 
 USE TransactionManagemer;
 GO

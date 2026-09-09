@@ -1,10 +1,4 @@
--- =====================================================================
--- Script 02: Stored Procedure - Transaction Totals by Period
--- =====================================================================
--- Calculates totals grouped by card and status within a period
--- =====================================================================
-
-USE TransactionManagemer;
+USE FinancialTransactionDB;
 GO
 
 IF OBJECT_ID('dbo.sp_GetTransactionTotalsByPeriod', 'P') IS NOT NULL
@@ -52,10 +46,3 @@ GO
 
 PRINT 'Stored Procedure sp_GetTransactionTotalsByPeriod created successfully.';
 GO
-
--- =====================================================================
--- Usage Examples:
--- =====================================================================
--- EXEC dbo.sp_GetTransactionTotalsByPeriod '2026-01-01', '2026-01-31', 'Approved';
--- EXEC dbo.sp_GetTransactionTotalsByPeriod '2026-01-01', '2026-01-31', NULL;  -- All statuses
--- EXEC dbo.sp_GetTransactionTotalsByPeriod '2026-01-01', GETDATE(), 'Pending';

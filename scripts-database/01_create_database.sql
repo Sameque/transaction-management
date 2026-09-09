@@ -1,11 +1,19 @@
-CREATE DATABASE TransactionManagemer;
+
+-- Create database (if not exists)
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'TransactionManagemer')
+BEGIN
+    CREATE DATABASE TransactionManagemer;
+    PRINT 'Database TransactionManagemer created successfully.';
+END
+ELSE
+BEGIN
+    PRINT 'Database TransactionManagemer already exists.';
+END
+GO
 
 USE TransactionManagemer;
 GO
 
--- =====================================================================
--- Table: Transactions
--- =====================================================================
 IF OBJECT_ID('dbo.Transactions', 'U') IS NOT NULL
 BEGIN
     DROP TABLE dbo.Transactions;
@@ -26,26 +34,18 @@ CREATE TABLE dbo.Transactions
 );
 GO
 
--- =====================================================================
--- Indexes for Performance
--- =====================================================================
-
--- Index for card number filter
 CREATE INDEX IX_Transactions_CardNumber
 ON dbo.Transactions (CardNumber);
 GO
 
--- Index for date filter and ordering
 CREATE INDEX IX_Transactions_TransactionDate
 ON dbo.Transactions (TransactionDate DESC);
 GO
 
--- Index for status filter
 CREATE INDEX IX_Transactions_Status
 ON dbo.Transactions (TransactionStatus);
 GO
 
--- Composite index for period + status queries (used in SP)
 CREATE INDEX IX_Transactions_DateStatus
 ON dbo.Transactions (TransactionDate, TransactionStatus);
 GO

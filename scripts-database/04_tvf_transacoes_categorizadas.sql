@@ -1,10 +1,3 @@
--- =====================================================================
--- Script 04: Table-Valued Function - Categorized Transactions by Period
--- =====================================================================
--- Returns all transactions for a period with their category
--- Uses the fn_GetValueCategory function
--- =====================================================================
-
 USE TransactionManagemer;
 GO
 
@@ -37,11 +30,3 @@ GO
 
 PRINT 'Table-Valued Function tvf_GetCategorizedTransactionsByPeriod created successfully.';
 GO
-
--- =====================================================================
--- Usage Examples:
--- =====================================================================
--- SELECT * FROM dbo.tvf_GetCategorizedTransactionsByPeriod('2026-01-01', '2026-01-31');
--- SELECT * FROM dbo.tvf_GetCategorizedTransactionsByPeriod('2026-01-01', GETDATE())
--- WHERE Category = 'Premium'
--- ORDER BY TransactionAmount DESC;

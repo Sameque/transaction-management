@@ -1,27 +1,13 @@
--- =====================================================================
--- Script 06: Sample Data for Load Testing (200 Records)
--- =====================================================================
--- Inserts exactly 200 varied transactions covering:
--- - 10 different cards
--- - All statuses (Approved, Pending, Canceled)
--- - All categories (Low, Medium, High, Premium)
--- - Data from last 6 months (Apr 2026 - Sep 2026)
--- =====================================================================
-
 USE TransactionManagemer;
 GO
 
 SET NOCOUNT ON;
 
--- Clear existing data (if any)
 DELETE FROM dbo.Transactions;
 DBCC CHECKIDENT('dbo.Transactions', RESEED, 0);
 PRINT 'Previous data removed. Inserting 200 sample transactions...';
 GO
 
--- =====================================================================
--- Test Cards (10 different cards)
--- =====================================================================
 DECLARE @CardNumbers TABLE (CardNumber VARCHAR(20), CardType VARCHAR(20));
 INSERT INTO @CardNumbers VALUES
 ('4111111111111111', 'Visa'),
@@ -35,9 +21,6 @@ INSERT INTO @CardNumbers VALUES
 ('3566002020360505', 'JCB'),
 ('6222222222222222', 'UnionPay');
 
--- =====================================================================
--- Transaction descriptions with amount ranges
--- =====================================================================
 DECLARE @Descriptions TABLE (
     Description VARCHAR(100),
     MinAmount DECIMAL(18,2),
@@ -92,9 +75,6 @@ INSERT INTO @Descriptions VALUES
 ('International Travel', 3000.00, 12000.00),
 ('Designer Fashion', 2000.00, 8000.00);
 
--- =====================================================================
--- Generate exactly 200 transactions
--- =====================================================================
 DECLARE @TxnCount INT = 0;
 DECLARE @TargetCount INT = 200;
 DECLARE @CardIndex INT = 1;
@@ -150,9 +130,6 @@ END
 PRINT '200 transactions inserted successfully!';
 GO
 
--- =====================================================================
--- Data Verification
--- =====================================================================
 USE TransactionManagemer;
 GO
 
