@@ -4,18 +4,16 @@ Begin VB.MDIForm mdiMain
    Caption         =   "Gerenciamento de Transações"
    ClientHeight    =   10755
    ClientLeft      =   165
-   ClientTop       =   -525
+   ClientTop       =   810
    ClientWidth     =   20370
    LinkTopic       =   "MDIForm1"
+   LockControls    =   -1  'True
    StartUpPosition =   3  'Windows Default
    Begin VB.Menu mnuTransactions 
       Caption         =   "&Transações"
    End
    Begin VB.Menu mnuReports 
       Caption         =   "&Relatórios"
-      Begin VB.Menu mnPreviousMonth 
-         Caption         =   "&Mês Anterior"
-      End
    End
    Begin VB.Menu mnuExit 
       Caption         =   "&Sair"

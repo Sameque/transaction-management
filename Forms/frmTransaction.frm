@@ -352,11 +352,9 @@ On Error GoTo ErroHandler
               "WHERE TransactionStatus <> 'Approved' AND TransactionId = " & m_idTransacao
    End If
    
-   
    affectedLines = CommandExec(sql)
    
    If affectedLines > 0 Then
-  
       MsgBox "Transação Salva!", vbInformation, "Sucesso"
       Unload Me
    Else

@@ -493,6 +493,7 @@ End Sub
 Private Sub cmdNew_Click()
 On Error GoTo ErrorHandler
 
+   Set frmTransaction = New frmTransaction
    frmTransaction.Modo = "NEW"
    frmTransaction.Show vbModal
 
